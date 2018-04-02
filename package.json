@@ -1,0 +1,70 @@
+{
+  "name": "dot-money",
+  "version": "0.0.0",
+  "description": "tracker for capital gains/loss with virtual currency",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:watch": "nodemon index.js",
+    "start:debug": "DEBUG=http* nodemon index.js",
+    "test": "jest -i",
+    "test:watch": "jest -i --watchAll",
+    "test:debug": "DEBUG=http* jest -i",
+    "lint": "eslint .",
+    "lint:test": "npm run lint && npm test",
+    "start-db": "mkdir -p ./data/db && mongod --dbpath ./data/db",
+    "stop-db": "killall mongod"
+  },
+  "jest": {
+    "setupFiles": [
+      "./__test__/lib/jest-setup.js"
+    ],
+    "verbose": true,
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage",
+    "coveragePathIgnorePatterns": [
+      "/__test__/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dot-money/dot-money.git"
+  },
+  "author": "Jesus Mendoza, Richard Montgomery, Hector Norzagaray, Karen Perez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dot-money/dot-money/issues"
+  },
+  "homepage": "https://github.com/Dot-money/dot-money#readme",
+  "dependencies": {
+    "aws-sdk": "^2.192.0",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "del": "^3.0.0",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "get-csv": "^3.0.3",
+    "jsonwebtoken": "^8.1.1",
+    "mongoose": "^5.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "faker": "^4.1.0",
+    "jest": "^22.2.2",
+    "superagent": "^3.8.2"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": []
+}
